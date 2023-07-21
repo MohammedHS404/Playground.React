@@ -59,8 +59,53 @@ export function App() {
   > | null>(null);
 
   useEffect(() => {
-    fetch("https://localhost:7028/api/Charts/FlairstechVsNonChart")
-      .then((response) => response.json())
+    // fetch("https://localhost:7028/api/Charts/FlairstechVsNonChart")
+    //.then((response) => response.json())
+    Promise.resolve({
+      "labels": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07"
+      ],
+      "groupedIssuesDone": [
+        {
+          "label": "Non Flairstech Employee",
+          "values": [
+            70,
+            144,
+            119,
+            77,
+            219,
+            138,
+            55
+          ]
+        },
+        {
+          "label": "Flairstech Employee",
+          "values": [
+            2,
+            1,
+            3
+          ]
+        },
+        {
+          "label": "UnAssigned",
+          "values": [
+            11,
+            4,
+            19,
+            5,
+            42,
+            20,
+            3
+          ]
+        }
+      ]
+    })
       .then((responseData: ComparisonChartResponse) => {
         const data = {
           labels: responseData.labels,
@@ -88,8 +133,55 @@ export function App() {
         setFlairsTechVsNonChartDate(data);
       });
 
-    fetch("https://localhost:7028/api/Charts/StatisticsCharts")
-      .then((response) => response.json())
+    // fetch("https://localhost:7028/api/Charts/StatisticsCharts")
+    //   .then((response) => response.json())
+    Promise.resolve({
+      "labels": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07"
+      ],
+      "issuesDone": [
+        20,
+        147,
+        135,
+        82,
+        262,
+        150,
+        57
+      ],
+      "minIssuesDone": [
+        20,
+        38,
+        8,
+        1,
+        2,
+        1,
+        29
+      ],
+      "maxIssuesDone": [
+        63,
+        147,
+        135,
+        82,
+        262,
+        150,
+        57
+      ],
+      "averages": [
+        39,
+        110.66666666666667,
+        81,
+        60.75,
+        170.75,
+        90.6,
+        47.666666666666664
+      ]
+    })
       .then((responseData: StatisticsChartsResponse) => {
         console.log(responseData);
         const data = {
