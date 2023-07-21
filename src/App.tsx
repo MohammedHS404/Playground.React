@@ -45,13 +45,6 @@ export interface StatisticsChartsResponse {
 }
 
 
-export enum Label {
-  FlairstechEmployee = "Flairstech Employee",
-  NonFlairstechEmployee = "Non Flairstech Employee",
-  UnAssigned = "UnAssigned",
-}
-
-
 export function App() {
   const [flairsTechVsNonChartDate, setFlairsTechVsNonChartDate] = useState<ChartData<
     "bar",
